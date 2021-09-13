@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <h1>Pomiar temperatury i zapis w bazie danych</h1>
+  <p>Celem projektu są pomiary temperatur, ich
+    zapis do zewnętrznej bazy danych oraz sterowanie zaworami ogrzewania podłogowego</p>
+    <img alt="Pi" src="/assets/img/schemat_rpi2.png" > <br>
+            <h4>1.Hardware:</h4>
+            <ul>
+                <li>
+                    Czujnik temperatury DS18B20
+                </li>
+                <Li>
+                    Moduł interfejsu One wire na USB firmy Meraprojekt (FT232RL + DS2480)
+                </Li>
+                <li>
+                    Raspberry Pi jako serwer
+                </li>
+                <li>
+                    Moduł 8 przekaźników
+                </li>
+            </ul>
+
+            <h4>2.Software:</h4>
+            <ul>
+                <li>
+                    Serwer HTTP (Apache, PHP, MySQL)
+                </li>
+                <li>
+                    Python - oprogramowanie modułu pomiarowego
+                </li>
+            </UL>
+
+            <h3>Pomiar temperatury- Monitor danych (archiwum)</h3>
+            <ul>
+
+                <li>
+                    <a href="new_wyk5.php">Pomiar temperatury - wykresy >>></a>
+                </li>
+
+                <li>
+                    <a href="new_cz.php">Pomiar temperatury - dane >>></a>
+                </li>
+            </ul>
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+
+
+App 52090 output: Executing (default): SELECT 1+1 AS result
+App 52090 output: Nawiązane połączenie z bazą danych. Sun Aug 30 2020 17:22:48 GMT+0200 (czas środkowoeuropejski letni)
+App 52090 output: ${req.hostname} efaktura.ct8.pl
+App 52090 output: Executing (default): SELECT `id`, `first_name`, `last_name`, `email`, `password`, `created`, `verification`, `active` FROM `users` AS `user` WHERE `user`.`email` = 'rzi@vp.pl' LIMIT 1;
+App 52090 output: Executing (default): INSERT INTO `users` (`id`,`first_name`,`last_name`,`email`,`password`,`created`,`verification`,`active`) VALUES (DEFAULT,'rafal','zietak','rzi@vp.pl','$2b$10$CCb4lNYOhma7H/DInuc8lOvBWM6JYBVH5XBWuc9uJ9Ip3bXakL/xm','2020-08-30 15:22:50',8352314,'false');
+App 52090 output: Serwer gotowy na wysłnie emaila
+App 52090 output: Email sent: 250 OK id=1kCPAQ-000Dnm-Ou
+App 52090 output: req.body.email rzi@vp.pl
+App 52090 output: Executing (default): SELECT `id`, `first_name`, `last_name`, `email`, `password`, `created`, `verification`, `active` FROM `users` AS `user` WHERE `user`.`email` = 'rzi@vp.pl' LIMIT 1;
+App 52090 output: user.verification 8352314
+App 52090 output: req.query.verify 8352314
+App 52090 output: Executing (default): UPDATE `users` SET `active`='true' WHERE `email` = 'rzi@vp.pl'
+App 52090 output: data was Updated get
+App 52090 output: jestem w activated get
+App 52090 output: jestem w activated post
+App 52090 output: Executing (default): SELECT `id`, `first_name`, `last_name`, `email`, `password`, `created`, `verification`, `active` FROM `users` AS `user` WHERE `user`.`email` = 'rzi@vp.pl' LIMIT 1;
+App 52090 output: req.body.password 1
+App 52090 output: user.password $2b$10$CCb4lNYOhma7H/DInuc8lOvBWM6JYBVH5XBWuc9uJ9Ip3bXakL/xm
+App 52090 output: Executing (default): SELECT `id`, `first_name`, `last_name`, `email`, `password`, `created`, `verification`, `active` FROM `users` AS `user` WHERE `user`.`email` = 'rzi@vp.pl' LIMIT 1;
+App 52090 output: req.body.password 2
+App 52090 output: user.password $2b$10$CCb4lNYOhma7H/DInuc8lOvBWM6JYBVH5XBWuc9uJ9Ip3bXakL/xm
+App 52090 output: Executing (default): SELECT `id`, `first_name`, `last_name`, `email`, `password`, `created`, `verification`, `active` FROM `users` AS `user` WHERE `user`.`email` = 'rzi@vp.pl' LIMIT 1;
+App 52090 output: req.body.password 1
+App 52090 output: user.password $2b$10$CCb4lNYOhma7H/DInuc8lOvBWM6JYBVH5XBWuc9uJ9Ip3bXakL/xm
+App 52090 output: Executing (default): SELECT `id`, `first_name`, `last_name`, `email`, `password`, `created`, `verification`, `active` FROM `users` AS `user` WHERE `user`.`email` = 'rzi@vp.pl' LIMIT 1;
+App 52090 output: req.body.password 2
+App 52090 output: user.password $2b$10$CCb4lNYOhma7H/DInuc8lOvBWM6JYBVH5XBWuc9uJ9Ip3bXakL/xm
+App 52090 output: jestem w reset posst
+App 52090 output: email: 
+App 52090 output:  wyjście z reset post
+App 52090 output: Executing (default): SELECT `id`, `first_name`, `last_name`, `email`, `password`, `created`, `verification`, `active` FROM `users` AS `user` WHERE `user`.`email` = '' LIMIT 1;
+App 52090 output: jestem w reset posst
+App 52090 output: email: rzi@vp.pl
+App 52090 output:  wyjście z reset post
+App 52090 output: Executing (default): SELECT `id`, `first_name`, `last_name`, `email`, `password`, `created`, `verification`, `active` FROM `users` AS `user` WHERE `user`.`email` = 'rzi@vp.pl' LIMIT 1;
+App 52090 output: req.header('host') efaktura.ct8.pl
+App 52090 output: Serwer gotowy na wysłnie emaila
+App 52090 output: Email sent: 250 OK id=1kCPCT-000GXR-8K
+App 52090 output: jestem w newpassword get
+App 52090 output: email w newpassword  rzi@vp.pl
+App 52090 output: jestem w newpassword
+App 52090 output: rzi@vp.pl
+App 52090 output: null
+App 52090 output: 2
+App 52090 output: $2b$10$pNe5r/1AqIc7Y9pI3wKmeuYTh44hwfrVTPn9C47BPb1bXWmVLBx3m
+App 52090 output: Executing (default): UPDATE `users` SET `password`='$2b$10$pNe5r/1AqIc7Y9pI3wKmeuYTh44hwfrVTPn9C47BPb1bXWmVLBx3m' WHERE `email` = 'rzi@vp.pl'
+App 52090 output: data was Updated
+App 52090 output: Executing (default): SELECT `id`, `first_name`, `last_name`, `email`, `password`, `created`, `verification`, `active` FROM `users` AS `user` WHERE `user`.`email` = 'rzi@vp.pl' LIMIT 1;
+App 52090 output: req.body.password 1
+App 52090 output: user.password $2b$10$pNe5r/1AqIc7Y9pI3wKmeuYTh44hwfrVTPn9C47BPb1bXWmVLBx3m
+App 52090 output: Executing (default): SELECT `id`, `first_name`, `last_name`, `email`, `password`, `created`, `verification`, `active` FROM `users` AS `user` WHERE `user`.`email` = 'rzi@vp.pl' LIMIT 1;
+App 52090 output: req.body.password 2
+App 52090 output: user.password $2b$10$pNe5r/1AqIc7Y9pI3wKmeuYTh44hwfrVTPn9C47BPb1bXWmVLBx3m
+App 52090 output: jestem w reset posst
+App 52090 output: email: rzi@vp.pl
+App 52090 output:  wyjście z reset post
+App 52090 output: Executing (default): SELECT `id`, `first_name`, `last_name`, `email`, `password`, `created`, `verification`, `active` FROM `users` AS `user` WHERE `user`.`email` = 'rzi@vp.pl' LIMIT 1;

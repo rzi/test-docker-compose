@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Użytkownicy</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Sen&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table.min.css" />
+    <script src="https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table.min.js"></script>
+    <script src="https://unpkg.com/tableexport.jquery.plugin/tableExport.min.js"></script>
+    <script src="https://unpkg.com/bootstrap-table@1.16.0/dist/extensions/export/bootstrap-table-export.min.js"></script>
+    <script src="https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table-locale-all.min.js"></script>
+    <link rel="stylesheet" href="/public/css/style.css" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="../public/stylerow.js"></script>
+    <style>
+        input#myid2 {
+            width: 30px;
+        }
+        
+        input#sesa_no2 {
+            width: 55px;
+        }
+        
+        input#first_name2 {
+            width: 110px;
+        }
+        
+        input#last_name2 {
+            width: 110px;
+        }
+        
+        input#person_no2 {
+            width: 70px;
+        }
+        
+        input#user_name2 {
+            width: 40px;
+        }
+        
+        input#password2 {
+            width: 70px;
+        }
+        
+        input#btn_add {
+            margin-left: 20px;
+        }
+        
+        input#btn_update {
+            margin-left: 20px;
+        }
+    </style>
+</head>
+
+<body class="body">
+    <div class="container">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li> <img src="/public/img/logo2.png" with="94" height="45" alt="logo" srcset="" style="margin-right: 20px;"></li>
+                        <li class="active"><a href="/home/dashboard">Powrót</a></li>
+                        <li><a href="/home/menu">Menu</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/home/logout">Wylogowanie</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="jumbotron2">
+            <h4 class="headers__h4-blue">Witaj w panelu administracyjnym zarządzania użytkownikami</h4>
+            <div class="ramka__users">
+                <p>Zarządzanie użytkownikami (dodaj lub uaktualnij użytkownika:)</p>
+                <div class="addUsers">
+                    id <input disabled type="text" id="myid2"> SESA <input type="text" id="sesa_no2" placeholder="liczba"> Imię <input type="text" id="first_name2" placeholder="tekst"> Nazwisko <input type="text" id="last_name2" placeholder="tekst"> Nr
+                    akt osobowych <input type="text" id="person_no2" placeholder="liczba">
+                    <select id="user_name2" name="user_name2">
+          <option value=""> </option>
+          <option value="DVC">DVC</option>
+          <option value="MBC">MBC</option>
+        </select>
+
+
+                    <!-- Sktót <input type="text" id="user_name2"> -->
+                    Hasło <input type="password" id="password2" placeholder="tekst">
+                </div>
+            </div>
+            <input id="btn_add" type="submit" onclick="addUser1()" value="Dodaj" class="btn btn-success">
+            <input hidden id="btn_update" type="submit" onclick="updateDB()" value="Uaktualnij" class="btn btn-success">
+
+
+            <br>
+            <div class="tableUser">
+                <table id="table" class="table" data-locale="pl-PL" data-search="true" data-show-export="true" data-pagination="true" data-show-pagination-switch="true" data-pagination-pre-text="Poprzedni" data-pagination-next-text="Następny" data-page-list="[3, 5, 10, 15, all]"
+                    data-show-columns="true" data-show-columns-toggle-all="true" data-row-style="rowStyle2" data-sort-name="name" data-header-style="headerStyleLightskyblue">
+                    <thead>
+                        <tr>
+                            <th data-field="id">ID</th>
+                            <th data-field="sesa_no">SESA</th>
+                            <th data-field="first_name">Imię</th>
+                            <th data-field="last_name">Nazwisk</th>
+                            <th data-field="person_no">Nr. akt osobowych</th>
+                            <th data-field="user_name">Typ</th>
+                            <th data-field="password" data-formatter="passwordFormatter">Hasło</th>
+                            <th data-field="delete">Usuń</th>
+                            <th data-field="update">Uaktualnij</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+
+        </div>
+        <script src="/public/users.js"></script>
+</body>
+
+</html>

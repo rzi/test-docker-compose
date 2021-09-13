@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Elunch</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="/public/css/style.css" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Sen&display=swap" rel="stylesheet">
+</head>
+
+<body class="body">
+    <div class="container">
+        <nav class="navbar navbar-default ">
+            <div class="container-fluid">
+                <div class="navbar-collapse collapse ">
+                    <ul class="nav navbar-nav">
+                        <li> <img src="/public/img/logo2.png" with="94" height="45" alt="logo" srcset="" style="margin-right: 20px;"></li>
+                        <li class="active"><a href="/home/dashboard">Powrót</a></li>
+                        <li>
+                            <a href="/home/orders2">Historia zamówień</a>
+                        </li>
+                        <li>
+                            <a href="/home/guest">Dla Gościa</a>
+                        </li>
+                        <li>
+                            <a href="/home/complaint">Reklamacja</a>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/home/logout">Wylogowanie</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Main component for a primary marketing message or call to action -->
+        <div class="jumbotron2">
+            <h2 id="fname">Witaj ,</h2>
+            <p style="margin-bottom: 0;"> Online możesz zamówić lunch na dzisiaj tylko do godziny 10.00,
+                <p id="myClock"> Pozostało ci jeszcze
+                    <strong>
+              <span class="h">.</span> h:
+              <span class="m">.</span> m:
+              <span class="s">.</span>s
+            </strong> do złożeina zamówienia. </p><span hidden id="f"></span>
+            </p>
+            <p style="margin-bottom: 0;">Wybierz datę na kiedy zamawiasz lunch</p>
+            <input type="date" name="lunch_order" id="lunch_order" />
+            <p id="mesg" style="color:red; font-size: 14px;"></p>
+            <p hidden id="sesa_no1"></p>
+            <p style="margin-bottom: 0;">Lista twoich aktualnych zamówień:</p>
+            <table id="table" class="table" data-locale="pl-PL" data-search="true" data-show-export="true">
+                <thead>
+                    <tr>
+                        <th data-field="id">ID</th>
+                        <th data-field="Id_sesa_no">SESA</th>
+                        <th data-field="first_name">Imię</th>
+                        <th data-field="last_name">Nazwisko</th>
+                        <th data-field="order_date">Data</th>
+                        <th data-field="order_supplier_name">Dostawca</th>
+                        <th data-field="order_no">Nr. dania</th>
+                        <th data-field="order_name">Danie</th>
+                        <th data-field="order_price">Cena</th>
+                        <th data-field="founding">Dofinansowanie</th>
+                        <th data-field="deduction">Potrącenie</th>
+                    </tr>
+                </thead>
+            </table>
+            <br>
+            <p>Masz do wyborów dwóch dostawców <strong>Mucha</strong> i <strong>Opoka</strong> , kliknij odpowiednią zakładkę
+            </p>
+            <p hidden id="activeSupplier"></p>
+            <!-- dynamic tabs -->
+            <ul class="nav nav-tabs">
+                <li><a data-toggle="tab" href="#mucha">Mucha</a></li>
+                <li><a data-toggle="tab" href="#opoka">Opoka</a></li>
+            </ul>
+
+            <div class="tab-content">
+                <div id="mucha" class="tab-pane fade in active">
+                    <h2 hidden id="titleMucha">Mucha</h2>
+                    <br>
+                    <p style="margin-bottom: 0; ">wybierz danie: </p>
+                    <table class="table" data-toggle="table" id="table_mucha" data-locale="pl-PL" data-search="true" data-height="400" data-show-export="true" data-click-to-select="true" data-pagination="true" data-show-pagination-switch="true" data-pagination-pre-text="Poprzedni"
+                        data-pagination-next-text="Następny" data-page-list="[3, 5, 10, 15, all]" data-response-handler="responseHandler">
+                        <thead>
+                            <tr>
+                                <th data-field="id">ID</th>
+                                <th data-field="supplier_name">Dostawca</th>
+                                <th data-field="menu_no">Numer dania</th>
+                                <th data-field="menu_desctription">opis Dania</th>
+                                <th data-field="menu_price">Cena</th>
+                                <th data-field="order">Zamów</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+                <div id="opoka" class="tab-pane fade">
+                    <h2 hidden id="titleOpoka">Opoka</h2>
+                    <br>
+                    <p>wybierz danie:</p>
+                    <table id="table_opoka" data-locale="pl-PL" data-search="true" data-height="400" data-show-export="true" data-click-to-select="true" data-pagination="true" data-show-pagination-switch="true" data-pagination-pre-text="Previous" data-pagination-next-text="Next"
+                        data-page-list="[3, 5, 10, 15, all]" data-response-handler="responseHandler">
+                        <thead>
+                            <tr>
+                                <th data-field="id">ID</th>
+                                <th data-field="supplier_name">Dostawca</th>
+                                <th data-field="menu_no">Numer dania</th>
+                                <th data-field="menu_desctription">opis Dania</th>
+                                <th data-field="menu_price">Cena</th>
+                                <th data-field="order">Zamów</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- js -->
+    <script src="/public/main.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.15.5/dist/bootstrap-table.min.css" />
+    <script src="https://unpkg.com/bootstrap-table@1.15.5/dist/bootstrap-table.min.js"></script>
+    <script src="https://unpkg.com/tableexport.jquery.plugin/tableExport.min.js"></script>
+    <script src="https://unpkg.com/bootstrap-table@1.15.5/dist/extensions/export/bootstrap-table-export.min.js"></script>
+    <script src="https://unpkg.com/bootstrap-table@1.15.5/dist/bootstrap-table-locale-all.min.js"></script>
+</body>
+
+</html>

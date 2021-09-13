@@ -1,0 +1,26 @@
+extends layout
+
+block content
+  h1= title
+  p To  jest moja pierwsza aplikacja w #{title}
+  br
+  form(name="add-estimation", method="post")
+    div.input
+      span.label ID:
+      input(type="text", name="id")
+    div.input
+      br
+      span.label Imie:
+      input(type="text", name="imie")
+    div.input
+      br
+      span.label Nazwisko:
+      input(type="text", name="nazwisko")
+    div.actions
+      br
+      input(type="submit", value="zapytaj baze")
+  h1="odpowiedź od serwera:"
+  h2="ID: "+ id
+  h2= "Imie: "+imie
+  h2="Nazwisko: "+nazwisko
+  
